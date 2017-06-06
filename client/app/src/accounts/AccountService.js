@@ -17,7 +17,7 @@
     var ark=require('arkjs');
 
     var TxTypes = {
-      0:"Send Ark",
+      0:"Send Bpl",
       1:"Second Signature Creation",
       2:"Delegate Registration",
       3:"Vote",
@@ -227,7 +227,7 @@
       if(transaction.recipientId==recipientAddress){
         transaction.total=transaction.amount;
         if(transaction.type==0){
-          transaction.label=gettextCatalog.getString("Receive Ark");
+          transaction.label=gettextCatalog.getString("Receive Bpl");
         }
       }
       if(transaction.senderId==recipientAddress){
@@ -365,7 +365,7 @@
 
         var account=getAccount(config.fromAddress);
         if(config.amount+10000000>account.balance){
-          deferred.reject(gettextCatalog.getString("Not enough ARK on your account ")+config.fromAddress);
+          deferred.reject(gettextCatalog.getString("Not enough BPL on your account ")+config.fromAddress);
           return deferred.promise;
         }
 
@@ -389,7 +389,7 @@
       else if(type==1){ // second passphrase creation
         var account=getAccount(config.fromAddress);
         if(account.balance<500000000){
-          deferred.reject(gettextCatalog.getString("Not enough ARK on your account ")+config.fromAddress+", "+gettextCatalog.getString("you need at least 5 ARK to create a second passphrase"));
+          deferred.reject(gettextCatalog.getString("Not enough BPL on your account ")+config.fromAddress+", "+gettextCatalog.getString("you need at least 5 BPL to create a second passphrase"));
           return deferred.promise;
         }
         try{
@@ -410,7 +410,7 @@
       else if(type==2){ //delegate creation
         var account=getAccount(config.fromAddress);
         if(account.balance<2500000000){
-          deferred.reject(gettextCatalog.getString("Not enough ARK on your account ")+config.fromAddress+", "+gettextCatalog.getString("you need at least 25 ARK to register delegate"));
+          deferred.reject(gettextCatalog.getString("Not enough BPL on your account ")+config.fromAddress+", "+gettextCatalog.getString("you need at least 25 BPL to register delegate"));
           return deferred.promise;
         }
         try{
@@ -431,7 +431,7 @@
       else if(type==3){ //vote
         var account=getAccount(config.fromAddress);
         if(account.balance<100000000){
-          deferred.reject(gettextCatalog.getString("Not enough ARK on your account ")+config.fromAddress+", "+gettextCatalog.getString("you need at least 1 ARK to vote"));
+          deferred.reject(gettextCatalog.getString("Not enough BPL on your account ")+config.fromAddress+", "+gettextCatalog.getString("you need at least 1 BPL to vote"));
           return deferred.promise;
         }
         try{

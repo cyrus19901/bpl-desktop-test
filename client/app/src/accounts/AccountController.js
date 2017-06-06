@@ -114,7 +114,7 @@
 
     self.closeApp = function() {
       var confirm = $mdDialog.confirm()
-          .title(gettextCatalog.getString('Quit Ark Client?'))
+          .title(gettextCatalog.getString('Quit Bpl Client?'))
           .ok(gettextCatalog.getString('Quit'))
           .cancel(gettextCatalog.getString('Cancel'));
       $mdDialog.show(confirm).then(function() {
@@ -281,7 +281,7 @@
           self.exchangeBuy.expirationProgress=0;
           self.exchangeBuy.expirationDate=new Date(self.exchangeBuy.expiration*1000);
           self.exchangeBuy.sendCurrency=self.selectedCoin.split("_")[1];
-          self.exchangeBuy.receiveCurrency="ARK";
+          self.exchangeBuy.receiveCurrency="BPL";
           var progressbar=$interval(function(){
             if(!self.exchangeBuy){
               $interval.cancel(progressbar);
@@ -1478,7 +1478,7 @@
           });
         }
 
-        else if(action==gettextCatalog.getString("Send Ark")){
+        else if(action==gettextCatalog.getString("Send Bpl")){
           sendArk();
         }
 
